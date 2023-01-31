@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +8,10 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: gray;
+    background-color: #9E9E9E;
+    display: grid;
+    grid-template-columns: 4fr 10fr;
+    height: 100vh;
 }
 
 #bookshelf {
@@ -14,4 +19,42 @@ body{
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     grid-template-rows: repeat(5, 1fr);
+}
+
+.sidebar{
+    background-color: #616161;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-popup {
+    display: none;
+    position: absolute;
+    border: 3px solid #f1f1f1;
+    background-color: lightgray;
+    width: 40vw;
+    height: 30vh;
+    margin: 30vh auto auto 45vw;
+}
+
+.LogoText{
+    font-size: 4rem;
+    color: white;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: 'Lobster', sans-serif;
+    letter-spacing: 2vw;
+}
+
+#newBook{
+    margin: 100px auto auto auto;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #212121;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

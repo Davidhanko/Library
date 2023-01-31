@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Bookshelf</title>
@@ -7,29 +7,26 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <form id="form1" onsubmit="event.preventDefault();">
-        <fieldset>
-            <label for="bnID">Book name</label>
-            <input type="text" name="bookName" id="bnID" required><br>
-            <label for="autID">Author of the book</label>
-            <input type="text" name="author" id="autID" required><br>
-            <label for="pagesID">Number of pages</label>
-            <input type="number" name="pages" id="pagesID" required><br>
-            <label for="readID">Have you read it?</label><br>
-            <label for="readID">Yes</label>
-            <input type="radio" id="readID" name="read" value="read" required><br>
-            <label for="noreadID">No</label>
-            <input type="radio" id="noreadID" name="read" value="read"><br>
-        </fieldset>
-    </form>
+<form id="form1" class="form-popup" onsubmit="event.preventDefault();">
+    <button type="button" onclick="hideForm()">Close form</button><br>
+    <label for="bnID">Book name</label>
+    <input type="text" name="bookName" id="bnID" required><br>
+    <label for="autID">Author of the book</label>
+    <input type="text" name="author" id="autID" required><br>
+    <label for="pagesID">Number of pages</label>
+    <input type="number" name="pages" id="pagesID" required><br>
+    <label for="readID">Have you read it?</label><br>
+    <label for="readID">Yes</label>
+    <input type="checkbox" id="readID" name="read" value="read"><br>
     <button type="submit" form="form1" value="Submit" id="submit">Submit</button>
-    <div id="bookshelf">
-        <div class="book">
-            <h2 class="test">Book name</h2>
-            <p class="test">Author of the book</p>
-            <p class="test">Number of pages</p>
-            <p class="test">Have you read it?</p>
+</form>
+<section class="sidebar" >
+    <h1 class="LogoText">LIBRARY</h1>
+        <button id="newBook" onclick="openForm()">New book</button>
+    </section>
+    <section class="library">
+        <div id="bookshelf">
         </div>
-    </div>
+    </section>
 </body>
 </html>
