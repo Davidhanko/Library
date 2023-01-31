@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@-webkit-keyframes flip-scale-2-hor-top{0%{-webkit-transform:translateY(0) rotateX(0) scale(1);transform:translateY(0) rotateX(0) scale(1);-webkit-transform-origin:50% 0;transform-origin:50% 0}50%{-webkit-transform:translateY(-50%) rotateX(-90deg) scale(2);transform:translateY(-50%) rotateX(-90deg) scale(2);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}100%{-webkit-transform:translateY(-100%) rotateX(-180deg) scale(1);transform:translateY(-100%) rotateX(-180deg) scale(1);-webkit-transform-origin:50% 100%;transform-origin:50% 100%}}@keyframes flip-scale-2-hor-top{0%{-webkit-transform:translateY(0) rotateX(0) scale(1);transform:translateY(0) rotateX(0) scale(1);-webkit-transform-origin:50% 0;transform-origin:50% 0}50%{-webkit-transform:translateY(-50%) rotateX(-90deg) scale(2);transform:translateY(-50%) rotateX(-90deg) scale(2);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}100%{-webkit-transform:translateY(-100%) rotateX(-180deg) scale(1);transform:translateY(-100%) rotateX(-180deg) scale(1);-webkit-transform-origin:50% 100%;transform-origin:50% 100%}}
 
 *{
     box-sizing: border-box;
@@ -11,22 +12,27 @@ body{
     background-color: #9E9E9E;
     display: grid;
     grid-template-columns: 4fr 10fr;
-    height: 100vh;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 #bookshelf {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-gap: 3px;
+    margin-right: 50px;
 }
 
 .sidebar{
     background-color: #616161;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.library{
+    height: 100%;
 }
 
 .form-popup {
@@ -39,6 +45,52 @@ body{
     margin: 30vh auto auto 45vw;
 }
 
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.labelRead{
+    font-style: italic;
+    margin: 10px;
+}
+
+#autID{
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    height: 30px;
+}
+
+#bnID{
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    height: 30px;
+}
+
+#pagesID{
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    height: 30px;
+}
+
+#submit{
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #212121;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .LogoText{
     font-size: 4rem;
     color: white;
@@ -49,7 +101,8 @@ body{
 }
 
 #newBook{
-    margin: 100px auto auto auto;
+    margin-top: 200px;
+    margin-left: 175px;
     padding: 10px;
     font-size: 1.5rem;
     color: white;
@@ -57,4 +110,63 @@ body{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    position: fixed;
+}
+
+.book{
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 50px 10px 30px;
+    background-color: rgba(97, 97, 97, 0.3);
+}
+
+.bookTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.bookAuthor{
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px;
+}
+
+.bookPages{
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px;
+}
+
+.bookRead{
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px;
+    width: 20%;
+    height: 20%;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #212121;
+    color: white;
+}
+
+.bookDelete{
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px;
+    width: 20%;
+    height: 20%;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #212121;
+    color: white;
+}
+
+.flip-scale-2-hor-top {
+    -webkit-animation: flip-scale-2-hor-top 0.5s linear reverse both;
+    animation: flip-scale-2-hor-top 0.5s linear reverse both;
 }
