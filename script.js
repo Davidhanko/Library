@@ -13,36 +13,22 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-// function createHTMLFromLibrary() {
-//   for (let i = 0; i < myLibrary.length; i++) {
-//     let book = myLibrary[i].title;
-//     let author = myLibrary[i].author;
-//     let pages = myLibrary[i].pages;
-//     let read = myLibrary[i].read;
-//     createHTML(book, author, pages, read);
-//   }
-// }
-
 function createHTML(book, author, pages) {
   let bookshelf = document.getElementById("bookshelf");
   let bookDiv = document.createElement("div");
   bookDiv.classList.add("book");
   bookshelf.appendChild(bookDiv);
 
-  let bookTitle = document.createElement("h2");
-  bookTitle.classList.add("bookTitle");
-  bookTitle.innerHTML = "Title: " + book;
-  bookDiv.appendChild(bookTitle);
+  function Creator(tagName, className, innerHtml) {
+    let bookTitle = document.createElement(tagName);
+    bookTitle.classList.add(className);
+    bookTitle.innerHTML = innerHtml;
+    bookDiv.appendChild(bookTitle);
+  }
 
-  let bookAuthor = document.createElement("p");
-  bookAuthor.classList.add("bookAuthor");
-  bookAuthor.innerHTML = "By: " + author;
-  bookDiv.appendChild(bookAuthor);
-
-  let bookPages = document.createElement("p");
-  bookPages.classList.add("bookPages");
-  bookPages.innerHTML = "Has: " + pages + " pages";
-  bookDiv.appendChild(bookPages);
+  Creator("p", "bookTitle", `Title: ${book}`);
+  Creator("p", "bookAuthor", `By: ${author}`);
+  Creator("p", "bookPages", `Has: ${pages} pages`);
 
   let bookRead = document.createElement("button");
   bookRead.classList.add("bookRead");
